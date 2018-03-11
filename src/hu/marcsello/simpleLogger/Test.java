@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 public class Test {
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException, InterruptedException {
 		
 		MySQLConnection conn = new MySQLConnection(new MySQLCredentials("192.168.0.53", "root", "password", "foo"), true);
 		
@@ -24,6 +24,7 @@ public class Test {
 		data = new EventData("Kisnigger",EventType.LEAVE);
 		thread.execute(data);
 		
+		//Thread.sleep(500);
 		
 		thread.close();
 		conn.close();

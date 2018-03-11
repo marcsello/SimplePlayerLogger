@@ -25,7 +25,9 @@ public class DBThread extends Thread {
 			
 			if (next == null) {
 				
-				try {
+				// TODO: Ha pont itt, még a wait előtt szúrnak be, akkor az nem kerül azonnal commitolásra
+				
+				try { 
 					synchronized (this) {
 						this.wait();
 					}
@@ -44,7 +46,7 @@ public class DBThread extends Thread {
 				
 			}
 					
-		} while(running);
+		} while(running || (!list.isEmpty()));
 		
 	}
 	
